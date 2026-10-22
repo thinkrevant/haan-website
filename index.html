@@ -25,7 +25,7 @@
 window.HAAN = {
   endpoint: "https://script.google.com/macros/s/AKfycbx_TlchUJOgzn5u_2E_mqJaJfNGD7xr21NRx_-VhPD1ZadegX_uaJnG0q_On1kYgd73/exec", // Google Apps Script web app
   site: "",                              // used in invite links; leave "" to use the current address
-  posthogKey: "",                        // PostHog project API key (phc_...); empty = no analytics
+  posthogKey: "phc_qmiv8XdmczquYrXVoxwDZtzRBFBk69KUhwd7FG27ZUZq", // PostHog project token (public, write-only); empty = no analytics
   posthogHost: "https://us.i.posthog.com"
 };
 /* local testing only: http://localhost:5173/?endpoint=local talks to landing/dev/mock-server.mjs */
@@ -437,6 +437,16 @@ html[data-v="b"] .va, html:not([data-v="b"]) .vb { display: none !important; }
 .beta-tag { background: var(--signal); color: var(--ink); padding: 3px 6px; border-radius: 3px; font-weight: 600; }
 .name-note { margin-top: 18px; color: var(--ink-2); }
 .name-note b { color: var(--ink); }
+/* founder line */
+.hero-links { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: baseline; }
+.maker-link { display: inline-block; margin-top: 12px; color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--rule-2); }
+.maker-link:hover, .maker-link:focus-visible { color: var(--ink); border-color: var(--ink); }
+.maker { display: flex; gap: 14px; align-items: center; margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--rule-2); max-width: 460px; }
+.maker .mono-badge { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border: 2px solid var(--ink); border-radius: 8px; box-shadow: 3px 3px 0 var(--ink); font: 600 13px/1 var(--mono); letter-spacing: .04em; background: var(--paper); }
+.maker p { margin: 0; color: var(--ink-2); line-height: 1.5; }
+.maker p b { color: var(--ink); }
+.maker a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--signal); }
+.maker a:hover, .maker a:focus-visible { border-bottom-width: 2px; }
 
 /* waitlist: after signup (inside the ticket) */
 .after[hidden] { display: none; }
@@ -558,7 +568,10 @@ footer { overflow: hidden; }
             <button class="btn" type="submit">Join the waitlist ↘</button>
           </form>
           <p class="form-note mono wl-note" role="status" aria-live="polite">Free · Windows 10 / 11 · One email when your invite is ready</p>
-          <a class="see-link mono" href="#link">See it work ↓</a>
+          <div class="hero-links">
+            <a class="see-link mono" href="#link">See it work ↓</a>
+            <a class="maker-link mono" href="https://www.linkedin.com/in/revantraj" target="_blank" rel="noopener">Built by Revant Raj ↗</a>
+          </div>
         </div>
         <div class="spec">
           <div><strong>Free</strong><span class="mono">No subscription</span></div>
@@ -829,7 +842,10 @@ footer { overflow: hidden; }
         <div class="mono" style="color:var(--ink-2);margin-bottom:18px"><b style="color:var(--ink)">06</b> — Early access</div>
         <h2 class="h2 reveal">Your PC is <span class="o">one text</span> away.</h2>
         <p class="body reveal" style="margin-top:22px">Invites go out in small batches, Windows first. Leave an email and we'll send yours when it's ready.</p>
-        <p class="name-note mono reveal"><b>Haan</b> is Hindi for “yes”. It's the one word it waits for before anything risky.</p>
+        <div class="maker reveal">
+          <span class="mono-badge" aria-hidden="true">RR</span>
+          <p>Built by <b>Revant Raj</b>. Questions or ideas? <a href="https://www.linkedin.com/in/revantraj" target="_blank" rel="noopener">Message me on LinkedIn ↗</a></p>
+        </div>
       </div>
       <div class="ticket" id="ticket">
         <div class="main">
@@ -920,7 +936,7 @@ footer { overflow: hidden; }
   <div class="wrap">
     <span class="wordmark" id="wordmark" aria-hidden="true">Say Haan</span>
     <div class="foot mono">
-      <span>© 2026 Haan</span>
+      <span>© 2026 Haan · by <a href="https://www.linkedin.com/in/revantraj" target="_blank" rel="noopener">Revant Raj ↗</a></span>
       <span>Text your PC. It does the work. You tap Approve.</span>
       <span>Your email is only used for your invite and launch news.</span>
       <a href="#top">Back to top ↑</a>
